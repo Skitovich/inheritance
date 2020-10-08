@@ -14,5 +14,4 @@ public class Product {
   private int price;
 
 
-
 }
