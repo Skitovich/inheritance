@@ -4,39 +4,38 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Objects;
+
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class Smartphone extends Product {
-  private String manufacturer;
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (!(o instanceof Smartphone)) return false;
-    if (!super.equals(o)) return false;
-    Smartphone that = (Smartphone) o;
-    return manufacturer.equals(that.manufacturer);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(super.hashCode(), manufacturer);
-  }
+    private String manufacturer;
 
 
-  public Smartphone(String manufacturer) {
-    this.manufacturer = manufacturer;
-  }
 
-  public Smartphone(int id, String name, int price, String manufacturer) {
-    super(id, name, price);
-    this.manufacturer = manufacturer;
-  }
-  public boolean matches(String search) {
-    if (super.matches(search)) {
-      return true;
+    public Smartphone(int id, String name, int price, String manufacturer) {
+        super(id, name, price);
+        this.manufacturer = manufacturer;
     }
-    return getManufacturer().equalsIgnoreCase(search);
 
-  }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Smartphone)) return false;
+        if (!super.equals(o)) return false;
+        Smartphone that = (Smartphone) o;
+        return manufacturer.equals(that.manufacturer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), manufacturer);
+    }
+
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        }
+        return getManufacturer().equalsIgnoreCase(search);
+
+    }
 }

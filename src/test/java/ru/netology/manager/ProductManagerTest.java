@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ProductManagerTest {
-    private Product product = new Product(1,"Rus",100);
+    private Product product = new Product(1, "Rus", 100);
     private ProductRepository repository = new ProductRepository();
     private ProductManager manager = new ProductManager(repository);
 
